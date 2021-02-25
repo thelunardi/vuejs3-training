@@ -6,8 +6,16 @@
           <img class="w-full" alt="Logo" src="../../assets/images/logo_white.png">
         </div>
         <div class="flex">
-          <button class="px-6 py-2 font-bold rounded-full text-white focus:outline-none">Crie uma conta</button>
-          <button class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none">Entrar</button>
+          <button
+            class="px-6 py-2 font-bold rounded-full text-white focus:outline-none"
+            @click="() => emit('create-account')"
+          >
+            Crie uma conta
+          </button>
+          <button
+            class="px-6 py-2 font-bold bg-white rounded-full text-brand-main focus:outline-none"
+            @click="() => emit('login')"
+          >Entrar</button>
         </div>
       </div>
       <div class="flex flex-col mt-28">
@@ -21,7 +29,12 @@
           simples widget na página.
         </p>
         <div>
-          <button class="px-6 py-2 mt-10 font-bold bg-white rounded-full text-brand-main focus:outline-none">Crie uma conta grátis</button>
+          <button
+            class="px-6 py-2 mt-10 font-bold bg-white rounded-full text-brand-main focus:outline-none"
+            @click="() => emit('create-account')"
+          >
+            Crie uma conta grátis
+          </button>
         </div>
       </div>
     </div>
@@ -29,7 +42,11 @@
 </template>
 
 <script>
-export default {}
+export default {
+  setup (_, { emit }) {
+    return { emit }
+  }
+}
 </script>
 <style lang="postcss" scoped>
 .header {
