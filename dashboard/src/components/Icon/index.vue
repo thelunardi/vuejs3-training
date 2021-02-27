@@ -4,8 +4,10 @@
 
 <script>
 import Loading from './Loading'
+import Copy from '@/components/Icon/Copy'
+
 export default {
-  components: { Loading },
+  components: { Loading, Copy },
   props: {
     name: { type: String, required: true }
   }

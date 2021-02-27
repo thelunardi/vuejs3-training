@@ -34,7 +34,6 @@ export default httpClient => ({
         statusText: response.request.statusText
       }
     }
-
     return {
       data: response.data,
       errors
