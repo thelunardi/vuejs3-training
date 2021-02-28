@@ -4,10 +4,11 @@
 
 <script>
 import Loading from './Loading'
-import Copy from '@/components/Icon/Copy'
+import Copy from './Copy'
+import ChevronDown from './ChevronDown'
 
 export default {
-  components: { Loading, Copy },
+  components: { ChevronDown, Loading, Copy },
   props: {
     name: { type: String, required: true }
   }
