@@ -4,7 +4,7 @@ const Home = () => import('../views/Home/index')
 const Feedbacks = () => import('../views/Feedbacks/index')
 const Credencials = () => import('../views/Credencials/index')
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'Home',
