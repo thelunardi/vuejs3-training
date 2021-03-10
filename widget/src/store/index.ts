@@ -1,12 +1,12 @@
 import { reactive, readonly } from 'vue'
 
 export type StoreState = {
-  currentComponent: string,
-  message: string,
-  feedbackType: string,
-  fingerprint: string,
-  apiKey: string,
-  currentPage: string
+  currentComponent: string;
+  message: string;
+  feedbackType: string;
+  fingerprint: string;
+  apiKey: string;
+  currentPage: string;
 }
 
 const initialState: StoreState = {
@@ -20,27 +20,27 @@ const initialState: StoreState = {
 
 const state = reactive<StoreState>({ ...initialState })
 
-export function setCurrentComponent(component: string) {
+export function setCurrentComponent (component: string) {
   state.currentComponent = component
 }
 
-export function setMessage(message: string) {
+export function setMessage (message: string) {
   state.message = message
 }
 
-export function setFeedbackType(type: string) {
+export function setFeedbackType (type: string) {
   state.feedbackType = type
 }
 
-export function setCurrentPage(page: string) {
+export function setCurrentPage (page: string) {
   state.currentPage = page
 }
 
-export function setApiKey(apiKey: string) {
+export function setApiKey (apiKey: string) {
   state.apiKey = apiKey
 }
 
-export function setFingerprint(fingerprint: string) {
+export function setFingerprint (fingerprint: string) {
   state.fingerprint = fingerprint
 }
 
@@ -54,7 +54,3 @@ export function resetStore () {
 }
 
 export default readonly(state)
-
-
-
-
