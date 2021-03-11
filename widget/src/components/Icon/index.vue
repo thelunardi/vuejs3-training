@@ -4,14 +4,14 @@
 
 <script>
 import Loading from './Loading'
-import Copy from './Copy'
-import ChevronDown from './ChevronDown'
+import Check from './Check'
+import Attention from './Attention'
 import Chat from './Chat'
 import Close from './Close'
 import Back from './Back'
 
 export default {
-  components: { ChevronDown, Loading, Copy, Chat, Back, Close },
+  components: { Check, Loading, Attention, Chat, Back, Close },
   props: {
     name: { type: String, required: true }
   }

@@ -9,12 +9,12 @@
     >
       <button
         v-if="canShowAdditionalControlAndInfo"
-        @click="() => ({})"
+        @click="back"
         :disabled="canGoBack"
         :class="{ insisible: canGoBack }"
         class="text-xl text-gray-800 focus:outline-none"
       >
-        <icon name="back" :colors="colors.gray['800']"/>
+        <icon name="back" :color="colors.gray['800']"/>
       </button>
 
       <p
@@ -28,10 +28,10 @@
         @click="() => emit('close-box')"
         class="text-xl text-gray-800 focus:outline-none"
       >
-        <icon size="14" name="close" :colors="colors.gray['800']"/>
+        <icon size="14" name="close" :color="colors.gray['800']"/>
       </button>
     </div>
-    wizard
+    <wizard/>
     <div class="text-gray-800 text-sm flex" v-if="canShowAdditionalControlAndInfo">
       <icon name="chat" class="mr-1" :color="brandColors.graydark" />
       widget by
@@ -42,8 +42,10 @@
 
 <script lang="ts">
 import { defineComponent, computed, ComputedRef, SetupContext } from 'vue'
-import useStore from '../../hooks/index'
-import Icon from '../../components/Icon/index.vue'
+import useStore from '@/hooks/index'
+import useNavigation, { Navigation } from '@/hooks/navigation'
+import Icon from '@/components/Icon/index.vue'
+import Wizard from '@/components/Wizard/index.vue'
 import { brand } from '../../../palette'
 import colors from 'tailwindcss/colors.js'
 
@@ -54,13 +56,15 @@ interface SetupReturn {
   label: ComputedRef<string>;
   brandColors: Record<string, string>;
   colors: Record<string, string>;
+  back: Navigation['back'];
 }
 
 export default defineComponent({
-  components: { Icon },
+  components: { Icon, Wizard },
   emits: ['close-box'],
   setup (_, { emit }: SetupContext): SetupReturn {
     const store = useStore()
+    const { back } = useNavigation()
 
     const label = computed<string>(() => {
       if (store.feedbackType === 'ISSUE') {
@@ -92,7 +96,8 @@ export default defineComponent({
       brandColors: brand,
       colors,
       canShowAdditionalControlAndInfo,
-      label
+      label,
+      back
     }
   }
 })
