@@ -31,9 +31,10 @@ import palette from '../../../palette.js'
 
 interface SetupReturn {
   goBack(): void;
+  palette: string;
 }
 
-export default defineComponent ({
+export default defineComponent({
   components: { Icon },
   setup (): SetupReturn {
     function goBack (): void {
@@ -47,7 +48,3 @@ export default defineComponent ({
   }
 })
 </script>
-
-<style scoped>
-
-</style>
