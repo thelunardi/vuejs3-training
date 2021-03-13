@@ -2,7 +2,7 @@ function init (apiKey) {
 
   async function handleLoadWidget () {
     const page = `${window.location.origin}${window.location.pathname}`
-    const fp = window.FingerprintJS.load()
+    const fp = await window.FingerprintJS.load()
     const fingerprint = await fp.get()
 
     const WIDGET_URL = `https://thelunardi-feedbacker-widget.netlify.app?api_key=${apiKey}&page=${page}&fingerprint=${fingerprint.visitorId}`
