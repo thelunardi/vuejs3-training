@@ -7,7 +7,7 @@ function init (apiKey) {
 
     const WIDGET_URL = `https://thelunardi-feedbacker-widget.netlify.app?api_key=${apiKey}&page=${page}&fingerprint=${fingerprint.visitorId}`
     const config = { method: 'HEAD' }
-    const response = await fetch(`https://backend-vue3-training.vercel.app/apikey/exists=apikey${apiKey}`, config)
+    const response = await fetch(`https://backend-vue3-training.vercel.app/apikey/exists=apikey=${apiKey}`, config)
 
     if (response.status === 200) {
       const iframe = document.createElement('iframe')
