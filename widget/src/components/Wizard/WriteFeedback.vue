@@ -36,8 +36,7 @@ import useStore from '@/hooks/index'
 import useNavigation from '@/hooks/navigation'
 import Icon from '@/components/Icon/index.vue'
 import { setMessage } from '@/store'
-// import services from '@/services/index'
-const services = {}
+import services from '@/services/index'
 
 type State = {
   feedback: string;
@@ -85,9 +84,9 @@ export default defineComponent({
           fingerprint: store.fingerprint
         })
         if (response.errors) {
-          setSuccessState()
-        } else {
           setErrorState()
+        } else {
+          setSuccessState()
         }
         state.isLoading = false
       } catch (e) {
